@@ -1,0 +1,74 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "9211f44a22b9c6c3e9abc2b1b5c4b85b6f611d38a57a2195eb1a1f947fd67560"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.8"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "beautifulsoup4": {
+            "hashes": [
+                "sha256:05fd825eb01c290877657a56df4c6e4c311b3965bda790c613a3d6fb01a5462a",
+                "sha256:9fbb4d6e48ecd30bcacc5b63b94088192dcda178513b2ae3c394229f8911b887",
+                "sha256:e1505eeed31b0f4ce2dbb3bc8eb256c04cc2b3b72af7d551a4ab6efd5cbe5dae"
+            ],
+            "version": "==4.8.2"
+        },
+        "bs4": {
+            "hashes": [
+                "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"
+            ],
+            "index": "pypi",
+            "version": "==0.0.1"
+        },
+        "six": {
+            "hashes": [
+                "sha256:236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a",
+                "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
+            ],
+            "version": "==1.14.0"
+        },
+        "soupsieve": {
+            "hashes": [
+                "sha256:bdb0d917b03a1369ce964056fc195cfdff8819c40de04695a80bc813c3cfa1f5",
+                "sha256:e2c1c5dee4a1c36bcb790e0fabd5492d874b8ebd4617622c4f6a731701060dda"
+            ],
+            "version": "==1.9.5"
+        },
+        "yelp-bytes": {
+            "hashes": [
+                "sha256:1b8ae1cf3f7e7db1dc3f9d0a666cf58873a53c32eda4fbaf0ecb18919b2d7c3c",
+                "sha256:32737bc2a1c33fdeb2d1d81a63eb37a80a5b073a8d5d87f178f9649ee3741395",
+                "sha256:dfc676eba6a785d1ed91a02805ef4d0035cf877e01ad114c16ec6f72d4f89c89"
+            ],
+            "version": "==0.3.0"
+        },
+        "yelp-encodings": {
+            "hashes": [
+                "sha256:04ab3601cc398b9186af8a37acebf682298f688aea49661155b6ebedc055297c",
+                "sha256:579bfb6f9f63613ebe2760009fdc5b1c8dc790e4467d015995a875d9f9e86ba9",
+                "sha256:af4576e88a6533c5742799fe775f039d7c6d921ffe6ac8265957662fcc1179da"
+            ],
+            "version": "==0.1.3"
+        },
+        "yelp-uri": {
+            "hashes": [
+                "sha256:74f5a21c2579ba2ffa7ef8790e497cc98b8805082ba8bb307183dbc91e41dbb4",
+                "sha256:8fa76acbafce39a5efffbb5fef96ffd7d6244b88d089597aceebebd90649d6e0"
+            ],
+            "index": "pypi",
+            "version": "==2.0.0"
+        }
+    },
+    "develop": {}
+}

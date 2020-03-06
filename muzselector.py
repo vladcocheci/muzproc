@@ -4,7 +4,7 @@ import re
 import pandas as pd
 import csv
 
-jud = "Cluj"
+jud = "Bucure%2526%2523351%253Bti"
 input_file_name ="MUZ" + jud + ".csv"
 output_file_name ="MUZ_coord_" + jud + ".csv"
 

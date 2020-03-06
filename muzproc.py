@@ -6,20 +6,29 @@ import csv
 import time
 from yelp_uri.encoding import recode_uri
 from random import randrange
+import os.path
+from os import path
 
 exceptions_file_name = "exceptions.txt"     # exceptions file
-jud = "Cluj"
+# jud = "Cluj"
+jud = "Bucure%2526%2523351%253Bti"
 base_link = "http://ghidulmuzeelor.cimec.ro/seljud.asp?judet=" + jud
 output_file_name ="MUZ" + jud + ".csv"
 
 ### main function
 def main():
-    link_list = MUZ_scraper(base_link)
-    scraper(link_list, output_file_name)
+    error_links, link_list = MUZ_scraper(base_link)
+    while error_links:
+        error_links, links = MUZ_scraper(error_links)
+        link_list.extend(links)
+
+    while link_list:
+        link_list = scraper(link_list, output_file_name)
 
 # MUZ scraper function -returns a list of links to all records
 def MUZ_scraper(base_link):
     cod_list = []
+    error_links = []
     try:
         req = urllib.request.Request(
             base_link, 
@@ -43,14 +52,16 @@ def MUZ_scraper(base_link):
         exceptions_file = open(exceptions_file_name,'a')
         exceptions_file.write(str(e) + ": " + url + "\n")
         exceptions_file.close()
+        error_links.append(url)
 
     time.sleep(1)
-    return cod_list
+    return error_links, cod_list
 
 
 # content scraper function -scraps relevant content from each page and saves it to .csv files
 def scraper(link_list, output_file_name):
     rec = []    # stores information from all tables
+    error_links = []    # stores links that raised errors when trying to open
     count = 0
 
     for url in link_list:
@@ -198,6 +209,7 @@ def scraper(link_list, output_file_name):
             exceptions_file = open(exceptions_file_name,'a')
             exceptions_file.write(str(e) + ": " + url + "\n")
             exceptions_file.close()
+            error_links.append(url)
 
         time.sleep(randrange(3))
         if count % 10 == 0:
@@ -205,7 +217,11 @@ def scraper(link_list, output_file_name):
             time.sleep(5)
 
     df = pd.DataFrame(rec, columns = ['cod_detinator', 'denumirea', 'judet', 'localitate', 'adresa', 'cod_postal', 'telefon', 'email', 'acces', 'program', 'director', 'descriere', 'cod_LMI', 'categoria', 'profil_general', 'profil_principal', 'web_site', 'persoana_contact', 'an_infiintare', 'link_harta'])
-    df.to_csv(output_file_name, index = False)
+    df.to_csv(output_file_name, mode = 'a', header = not(path.exists(output_file_name)), index = False) # if the file doesn't exist, create it and write the dataframe with a header else it append the dataframe without header
+
+    exceptions_file = open(exceptions_file_name,'a')
+    exceptions_file.write("________________________________________________________________" + "\n")
+    return error_links
 
 
 

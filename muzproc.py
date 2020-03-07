@@ -11,7 +11,8 @@ from os import path
 
 exceptions_file_name = "exceptions.txt"     # exceptions file
 # jud = "Cluj"
-jud = "Bucure%2526%2523351%253Bti"
+# jud = "Bucure%2526%2523351%253Bti"
+jud = "Ilfov"
 base_link = "http://ghidulmuzeelor.cimec.ro/seljud.asp?judet=" + jud
 output_file_name ="MUZ" + jud + ".csv"
 
